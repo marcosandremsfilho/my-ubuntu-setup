@@ -16,6 +16,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 local opts = {}
 
+vim.opt.clipboard = "unnamedplus"
+
 require("vim-options")
 require("lazy").setup("plugins")
 
