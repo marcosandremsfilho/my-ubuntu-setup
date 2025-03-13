@@ -289,23 +289,56 @@ headers = {
     "⣾⣬⣭⣷⣶⣿⣿⣿⣿⣿⣶⣦⡲⠷⡙⣿⣿⣿⣿⣿⣿⣿⣿",
   },
 }
+
+footer = {
+  { "Don't Stop Until You are Proud..." },
+  { "DOTA 2 > LOL" },
+  { "It's the choices that make us who we are" },
+  { "Sometimes, To Do What's Right, We Have To Be Steady, And Give Up The Things We Want The Most. Even Our Dreams" },
+  { "We Have To Be Greater Than What We Suffer" },
+  { "If You're Nothing Without The Suit, Then You Shouldn't Have It" },
+  { "I'm Gonna Throw You Out The Window Now" },
+  { "You Know, I Guess One Person Can Make A Difference" },
+  { "With Great Power Comes Great Responsibility" },
+  { "Oh look at me, i'm using NEOVIM" },
+  { "Also try VSCode" },
+  { "Don't say it can't be done; explain what can be done." },
+  { "Provide options, don't make lame excuses" },
+}
+
 return {
   "goolord/alpha-nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "Shatur/neovim-session-manager",
+  },
   config = function()
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
+    local session_manager = require("session_manager")
+    session_manager.setup({
+      autoload_mode = require("session_manager.config").AutoloadMode.Disabled
+    })
+    -- Cores
+    dashboard.section.header.opts.hl = "Include"
+    dashboard.section.buttons.opts.hl = "Keyword"
+    dashboard.section.footer.opts.hl = "Type"
 
     -- Ícone e título
     dashboard.section.header.val = get_random_item_from_a_list(headers)
 
     -- Menu de atalhos
     dashboard.section.buttons.val = {
-      dashboard.button("e", "📄  New File", ":ene <BAR> startinsert <CR>"),
-      dashboard.button("f", "🔍  Find File", ":Telescope find_files<CR>"),
-      dashboard.button("r", "🕒  Recent Files", ":Telescope oldfiles<CR>"),
-      dashboard.button("q", "❌  Quit Neovim", ":qa<CR>"),
+      { type = "text", val = " " .. os.date("%A, %d %B %Y"), opts = { position = "center", hl = "Type" } },
+      dashboard.button("e", "  New File", ":ene <BAR> startinsert <CR>"),
+      dashboard.button("f", "  Find File", ":Telescope find_files<CR>"),
+      dashboard.button("r", "  Recent Files", ":Telescope oldfiles<CR>"),
+      dashboard.button("t", "󰱽  Find text", ":Telescope live_grep <CR>"),
+      dashboard.button("s", "󰦛  Restore Session", ":SessionManager load_session<CR>"),
+      dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
     }
+
+    dashboard.section.footer.val = get_random_item_from_a_list(footer)
 
     alpha.setup(dashboard.opts)
   end,
