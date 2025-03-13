@@ -16,6 +16,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 local opts = {}
 
+vim.o.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 
 require("vim-options")
