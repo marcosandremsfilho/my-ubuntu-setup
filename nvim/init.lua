@@ -18,6 +18,7 @@ local opts = {}
 
 vim.o.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
+vim.o.showmode = false
 
 require("vim-options")
 require("lazy").setup("plugins")
