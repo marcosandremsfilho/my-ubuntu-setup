@@ -7,6 +7,7 @@ vim.cmd("nnoremap { {zz")
 vim.cmd("nnoremap } }zz")
 vim.cmd("nnoremap ]] ]]zz")
 
+vim.cmd("nnoremap gd gdzz")
 vim.g.mapleader = " "
 
 vim.opt.colorcolumn = "120"
