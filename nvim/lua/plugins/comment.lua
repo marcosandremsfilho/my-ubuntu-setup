@@ -5,15 +5,15 @@ return {
     require('Comment').setup({
        toggler = {
         ---Line-comment toggle keymap
-        line = 'cll',
+        line = '<leader>cll',
         ---Block-comment toggle keymap
-        block = 'cbb',
+        block = '<leader>cbb',
     },
       opleader = {
         ---Line-comment keymap
-        line = 'cl',
+        line = '<leader>cl',
         ---Block-comment keymap
-        block = 'cb',
+        block = '<leader>cb',
       },
     })
   end
