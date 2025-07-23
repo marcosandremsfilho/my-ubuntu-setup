@@ -18,6 +18,7 @@ local opts = {}
 
 vim.o.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
+vim.opt.relativenumber = true
 vim.o.showmode = false
 
 require("vim-options")
