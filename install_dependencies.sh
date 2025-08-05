@@ -2,6 +2,7 @@
 
 apt install npm
 apt install ripgrep # This dependencie is used to enable the live grep from telescope
+apt install xclip # This dependencie is used to enable the copy and paste from outside the editor
 
 ORIG_USER=$SUDO_USER
 ORIG_HOME=$(eval echo "~$ORIG_USER")
